@@ -21,3 +21,6 @@ yarn-error.log*
 
 # env
 .env*.local
+
+# claude code local settings (personal, not shared)
+.claude/settings.local.json
