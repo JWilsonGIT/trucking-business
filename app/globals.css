@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/*
+  Trucking MS — "Dispatch Deck"
+  Asphalt graphite + hi-vis safety amber, fleet green, mono data labels.
+  Deliberately distinct from the SJG navy/amber TeamPlan theme.
+*/
+@theme {
+  --color-ink: #1b1e26;
+  --color-ink-700: #2a2f3a;
+  --color-ink-500: #454b5a;
+  --color-paper: #f4f5f7;
+  --color-surface: #ffffff;
+  --color-line: #e3e6ec;
+  --color-muted: #6b7280;
+
+  --color-accent: #f5a623;
+  --color-accent-600: #d98a12;
+  --color-fleet: #2f8f5b;
+  --color-fleet-50: #e9f4ee;
+  --color-hazard: #e23b3b;
+
+  /* status ramp */
+  --color-st-pending: #94a3b8;
+  --color-st-assigned: #2563eb;
+  --color-st-loaded: #7c3aed;
+  --color-st-transit: #f5a623;
+  --color-st-delivered: #0ea5e9;
+  --color-st-completed: #2f8f5b;
+  --color-st-cancelled: #e23b3b;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-barlow), var(--font-inter), sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  --radius: 0.625rem;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Mono utility label used for eyebrows, dates, counts, tags */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Display headings: condensed, signage feel */
+.font-display {
+  letter-spacing: -0.01em;
+}
+
+/* Hi-vis hazard stripe accent (dividers / brand marks) */
+.hazard-stripe {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--color-accent) 0,
+    var(--color-accent) 10px,
+    var(--color-ink) 10px,
+    var(--color-ink) 20px
+  );
+}
+
+/* Focus visibility floor */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #c7ccd6;
+  border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
